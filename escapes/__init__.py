@@ -21,11 +21,13 @@ DIRECTIONS = {
 	"left": 4
 }
 
-SCREEN_40x25_BLACK_WHITE = '40x25 b/w'
-SCREEN_40x25_COLOR       = '40x25 color'
-SCREEN_80x25_BLACK_WHITE = '80x25 b/w'
-SCREEN_80x25_COLOR       = '80x25 color'
-SCREEN_320x200_
+SCREEN_40x25_BLACK_WHITE  = '40x25 b/w'
+SCREEN_40x25_COLOR        = '40x25 color'
+SCREEN_80x25_BLACK_WHITE  = '80x25 b/w'
+SCREEN_80x25_COLOR        = '80x25 color'
+SCREEN_320x200_COLOR      = '32x20 color'
+SCREEN_320x200_BLACK_WHITE= '32x20 b/w'
+SCREEN_640x200_BLACK_WHITE= '64x20 b/w'
 
 
 def resetScreen():
@@ -76,3 +78,10 @@ def clearLine():
 	print('\x1b[K')
 
 def screenMode(mode):
+	s=[SCREEN_40x25_BLACK_WHITE,SCREEN_40x25_COLOR,SCREEN_80x25_BLACK_WHITE,SCREEN_80x25_COLOR,SCREEN_320x200_COLOR,SCREEN_320x200_BLACK_WHITE,SCREEN_640x200_BLACK_WHITE].index(mode)
+	if not (0<=s<=7):
+		return
+	print('\x1b[=' + str(s) + ';7h')
+
+def clearScreenMode():
+	print('\x1b[=l')

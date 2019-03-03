@@ -1,7 +1,7 @@
 import setuptools
 
 setuptools.setup(
-    name="Console ANSI escape sequences",
+    name="pyescapes",
     version="0.0.1",
     author="RMuskovets",
     author_email="rmuskovets@gmail.com",
